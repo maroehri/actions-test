@@ -3,7 +3,7 @@
 #include <string>
 
 class Trip {
-  private:
+private:
     int tripId;
     std::string date; // Vereinfachte Darstellung von Datum und Zeit als String
     std::string startTime;
@@ -12,9 +12,14 @@ class Trip {
     double endMileage;
     std::string purpose;
 
-  public:
-    Trip(int id, std::string date, std::string start, std::string end,
-         double startMile, double endMile, std::string purp);
+public:
+    Trip(int id,
+         std::string date,
+         std::string start,
+         std::string end,
+         double startMile,
+         double endMile,
+         std::string purp);
 
     int getTripId() const;
     std::string getDate() const;

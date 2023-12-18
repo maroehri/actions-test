@@ -89,8 +89,7 @@ void UserInterface::deleteTrip() {
     if (logbook.removeTrip(id)) {
         std::cout << "Fahrt erfolgreich gelöscht." << std::endl;
     } else {
-        std::cout << "Fahrt mit der ID " << id << " wurde nicht gefunden."
-                  << std::endl;
+        std::cout << "Fahrt mit der ID " << id << " wurde nicht gefunden." << std::endl;
     }
 }
 

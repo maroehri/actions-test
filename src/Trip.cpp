@@ -1,10 +1,16 @@
 #include "Trip.hpp"
 #include <sstream>
 
-Trip::Trip(int id, std::string date, std::string start, std::string end,
-           double startMile, double endMile, std::string purp)
-    : tripId(id), date(date), startTime(start), endTime(end),
-      startMileage(startMile), endMileage(endMile), purpose(purp) {}
+Trip::Trip(int id,
+           std::string date,
+           std::string start,
+           std::string end,
+           double startMile,
+           double endMile,
+           std::string purp)
+    : tripId(id), date(date), startTime(start), endTime(end), startMileage(startMile), endMileage(endMile),
+      purpose(purp) {
+}
 
 int Trip::getTripId() const {
     return tripId;

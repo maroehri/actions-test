@@ -3,10 +3,10 @@
 #include "Logbook.hpp"
 
 class UserInterface {
-  private:
+private:
     Logbook logbook;
 
-  public:
+public:
     void start();
     void displayMenu();
     void captureNewTrip();

@@ -4,10 +4,10 @@
 #include <vector>
 
 class Logbook {
-  private:
+private:
     std::vector<Trip> trips;
 
-  public:
+public:
     bool addTrip(const Trip &trip);
     bool removeTrip(int tripId);
     bool editTrip(int tripId, const Trip &newTrip);
