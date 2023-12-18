@@ -25,7 +25,7 @@ jobs:
       - name: Install cppcheck
         run: sudo apt-get install -y cppcheck
       - name: Run cppcheck
-        run: cppcheck --enable=all --output-file=cppcheck_report.txt src/ include/
+        run: cppcheck --enable=all -Iinclude --output-file=cppcheck_report.txt src/ include/
       - name: Upload cppcheck report
         uses: actions/upload-artifact@v3
         with:
