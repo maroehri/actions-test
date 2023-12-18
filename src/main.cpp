@@ -1,6 +1,7 @@
 #include "UserInterface.hpp"
 
-int main() {
+int main() 
+{
     UserInterface ui;
     ui.start();
 
