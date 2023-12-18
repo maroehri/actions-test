@@ -18,9 +18,24 @@ jobs:
           find src/ include/ -regex '.*\.\(cpp\|hpp\|h\|cc\|cxx\)' -exec clang-format -style=file -i {} \+
           git diff --exit-code
 
-  static-analysis:
+  cppcheck-analysis:
     runs-on: ubuntu-latest
     needs: format-check
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install cppcheck
+        run: sudo apt-get install -y cppcheck
+      - name: Run cppcheck
+        run: cppcheck --enable=all --output-file=cppcheck_report.txt --force -j $(nproc) src/ include/
+      - name: Upload cppcheck report
+        uses: actions/upload-artifact@v2
+        with:
+          name: cppcheck-report
+          path: cppcheck_report.txt
+
+  static-analysis:
+    runs-on: ubuntu-latest
+    needs: cppcheck-analysis
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies for Clang-Tidy
@@ -33,7 +48,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: static-analysis
+    needs: cppcheck-analysis
     steps:
       - uses: actions/checkout@v3
       - name: Install build essentials
