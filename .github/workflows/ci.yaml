@@ -20,6 +20,7 @@ jobs:
 
   cppcheck-analysis:
     runs-on: ubuntu-latest
+    needs: format-check
     steps:
       - uses: actions/checkout@v3
       - name: Install cppcheck
@@ -34,6 +35,7 @@ jobs:
 
   static-analysis:
     runs-on: ubuntu-latest
+    needs: format-check
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies for Clang-Tidy
@@ -46,7 +48,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: [format-check, cppcheck-analysis, static-analysis]
+    needs: [cppcheck-analysis, static-analysis]
     steps:
       - uses: actions/checkout@v3
       - name: Install build essentials
