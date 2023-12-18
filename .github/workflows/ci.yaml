@@ -16,12 +16,13 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential cmake clang clang-format clang-tidy
+          sudo apt-get install -y build-essential clang clang-format clang-tidy
 
-      - name: Generate Compilation Database
-        run: |
-          cmake -Bbuild -H. -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-          cp build/compile_commands.json .
+      - name: Install Bear
+        run: sudo apt-get install -y bear
+
+      - name: Generate Compilation Database with Bear
+        run: bear -- make
 
       - name: Run Clang-Format
         run: |
