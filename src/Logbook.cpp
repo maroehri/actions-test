@@ -2,7 +2,7 @@
 
 bool Logbook::addTrip(const Trip &trip) {
     trips.push_back(trip);
-    return true; // Annahme, dass das Hinzufügen immer erfolgreich ist
+    return true; // Annahme, dass das Hinzufügen stets erfolgreich ist
 }
 
 bool Logbook::removeTrip(int tripId) {
