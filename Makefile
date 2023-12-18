@@ -25,13 +25,13 @@ TEST_EXECUTABLE = $(BIN_DIR)/test_app
 all: $(APP_EXECUTABLE)
 
 # Ziel zum Erstellen der Hauptanwendung
-$(APP_EXECUTABLE): $(APP_OBJECTS) $(MAIN_OBJECT)
+$(APP_EXECUTABLE): $(APP_OBJECTS) $(MAIN_OBJECT) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Ziel zum Erstellen der Test-Anwendung
 test: $(TEST_EXECUTABLE)
 
-$(TEST_EXECUTABLE): $(APP_OBJECTS) $(TEST_OBJECTS)
+$(TEST_EXECUTABLE): $(APP_OBJECTS) $(TEST_OBJECTS) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Generische Regel für das Erstellen von Objekten
