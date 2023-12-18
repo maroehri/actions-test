@@ -34,6 +34,10 @@ test: $(TEST_EXECUTABLE)
 $(TEST_EXECUTABLE): $(APP_OBJECTS) $(TEST_OBJECTS) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
+# Ziel zum Ausführen der Tests
+run-tests: $(TEST_EXECUTABLE)
+    ./$^
+
 # Generische Regel für das Erstellen von Objekten
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -I$(INC_DIR) -c $< -o $@
@@ -51,4 +55,4 @@ $(BIN_DIR):
 clean:
 	rm -rf $(OBJ_DIR)/*.o $(BIN_DIR)/* $(APP_EXECUTABLE) $(TEST_EXECUTABLE)
 
-.PHONY: all test clean
+.PHONY: all test run-test clean
