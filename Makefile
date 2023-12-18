@@ -36,7 +36,7 @@ $(TEST_EXECUTABLE): $(APP_OBJECTS) $(TEST_OBJECTS) | $(BIN_DIR)
 
 # Ziel zum Ausführen der Tests
 run-tests: $(TEST_EXECUTABLE)
-	./$^
+	./$(TEST_EXECUTABLE) -r junit > test_results.xml
 
 # Generische Regel für das Erstellen von Objekten
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
