@@ -1,6 +1,3 @@
-# Created by https://www.toptal.com/developers/gitignore/api/c++,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=c++,visualstudiocode
-
 ### C++ ###
 # Prerequisites
 *.d
@@ -23,10 +20,6 @@ obj/
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
-*.mod
-*.smod
 
 # Compiled Static libraries
 *.lai
@@ -53,4 +46,5 @@ obj/
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/c++,visualstudiocode
+# Anything else
+.DS_Store
