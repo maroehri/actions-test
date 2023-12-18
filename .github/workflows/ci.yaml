@@ -70,8 +70,3 @@ jobs:
         with:
           name: test-results
           path: test_results.xml
-      - name: JUnit Report Action
-        uses: mikepenz/action-junit-report@v4.0.3
-        if: always()
-        with:
-          report_paths: "test_results.xml"
