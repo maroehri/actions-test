@@ -62,7 +62,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run tests
-        run: make run-test
+        run: make run-tests
 
       - name: Upload test results
         uses: actions/upload-artifact@v3
