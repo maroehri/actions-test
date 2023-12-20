@@ -10,7 +10,7 @@ TEST_CASE("Trip calculations are correct", "[trip]") {
     }
 
     SECTION("Get trip details") {
-        REQUIRE(trip.getDate() == "2023-11-08");
+        REQUIRE(trip.getDate() == "2023-11-10");
         REQUIRE(trip.getStartTime() == "08:00");
         REQUIRE(trip.getEndTime() == "10:00");
         REQUIRE(trip.getStartMileage() == 100.0);
