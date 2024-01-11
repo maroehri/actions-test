@@ -3,7 +3,7 @@
 #include "catch.hpp"
 
 TEST_CASE("Trip calculations are correct", "[trip]") {
-    Trip trip(1, "2023-11-08", "08:00", "10:00", 100.0, 150.0, "Business");
+    Trip trip(1, "2023-11-08", "08:00", "10:00", 100.0, 120.0, "Business");
 
     SECTION("Calculate distance") {
         REQUIRE(trip.calculateDistance() == 50.0);
