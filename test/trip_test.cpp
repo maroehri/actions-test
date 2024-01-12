@@ -2,7 +2,7 @@
 #include "Trip.hpp"
 #include "catch.hpp"
 
-TEST_CASE("Trip calculations are correct", "[trip]") {
+TEST_CASE("Trip Calculations are correct", "[trip]") {
     Trip trip(1, "2023-11-08", "08:00", "10:00", 100.0, 150.0, "Business");
 
     SECTION("Calculate distance") {
