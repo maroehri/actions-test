@@ -10,7 +10,7 @@ TEST_CASE("Logbook operations are functioning", "[logbook]") {
     SECTION("Add Trip") {
         REQUIRE(logbook.addTrip(trip1) == true);
         auto trips = logbook.getTripsList();
-        REQUIRE(trips.size() == 0);
+        REQUIRE(trips.size() == 1);
         REQUIRE(trips[0].getTripId() == 1);
     }
 
