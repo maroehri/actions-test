@@ -36,7 +36,11 @@ $(TEST_EXECUTABLE): $(APP_OBJECTS) $(TEST_OBJECTS) | $(BIN_DIR)
 
 # Ziel zum Ausführen der Tests
 run-tests: $(TEST_EXECUTABLE)
-	./$(TEST_EXECUTABLE) -r junit > test_results.xml
+ifeq ($(OS),Windows_NT)
+	$(BIN_DIR)/test_app.exe
+else
+	./$(TEST_EXECUTABLE)
+endif
 
 # Generische Regel für das Erstellen von Objekten
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
@@ -47,12 +51,24 @@ $(OBJ_DIR)/%.o: $(TEST_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -I$(INC_DIR) -c $< -o $@
 
 $(OBJ_DIR):
-	mkdir -p $@
+ifeq ($(OS),Windows_NT)
+	if not exist $(OBJ_DIR) mkdir $(OBJ_DIR)
+else
+	mkdir -p $(OBJ_DIR)
+endif
 
 $(BIN_DIR):
-	mkdir -p $@
+ifeq ($(OS),Windows_NT)
+	if not exist $(BIN_DIR) mkdir $(BIN_DIR)
+else
+	mkdir -p $(BIN_DIR)
+endif
 
 clean:
+ifeq ($(OS),Windows_NT)
+	del /Q $(OBJ_DIR)\*.o $(BIN_DIR)\*
+else
 	rm -rf $(OBJ_DIR)/*.o $(BIN_DIR)/* $(APP_EXECUTABLE) $(TEST_EXECUTABLE)
+endif
 
-.PHONY: all test run-test clean
+.PHONY: all test run-tests clean
